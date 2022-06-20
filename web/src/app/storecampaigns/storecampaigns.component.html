@@ -1,0 +1,27 @@
+<ngx-dropzone (change)="onSelect($event)">
+	<ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+	<ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+		<ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+	</ngx-dropzone-preview>
+</ngx-dropzone>
+<br>
+<br>
+<button class="btn btn-success" (click)="uploadFile()">Parse</button>
+<br>
+<div class="row">
+	<div class="col-6">
+		<div *ngFor="let store of storeNameObject; let i=index">
+			<pre >"{{store.StoreName}}",</pre>
+		</div>
+	</div>
+	<!-- <div class="col-6">
+		<div *ngFor="let store of storeNameObject; let i=index">
+			<pre >{{store | json}},</pre>
+		</div>
+	</div> -->
+</div>
+
+
+
+
+

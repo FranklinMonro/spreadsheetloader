@@ -1,0 +1,34 @@
+<ngx-dropzone (change)="onSelect($event)">
+	<ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+	<ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+		<ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+	</ngx-dropzone-preview>
+</ngx-dropzone>
+<br>
+<br>
+<div class="row">
+    <div class="col">
+        <button class="btn btn-success" (click)="uploadFile()">Parse</button>
+    </div>
+    <div class="col">
+        <button class="btn btn-success" (click)="compareSerialLists()">Compare</button>
+    </div>
+    <div class="col">
+        <button class="btn btn-success" (click)="exportExcel()">Excel</button>
+    </div>
+</div>
+<br>
+<table *ngIf="compareObject" class="table">
+    <thead>
+        <tr>
+            <th>Serial Number</th>
+            <th>Compare</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of compareObject">
+            <td>{{item.serialNumber}}</td>
+            <td>{{item.compare}}</td>
+        </tr>
+    </tbody>
+</table>
