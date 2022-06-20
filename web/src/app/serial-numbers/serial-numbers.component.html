@@ -1,0 +1,13 @@
+<ngx-dropzone (change)="onSelect($event)">
+	<ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+	<ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+		<ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+	</ngx-dropzone-preview>
+</ngx-dropzone>
+<br>
+<br>
+<button class="btn btn-success" (click)="uploadFile()">Parse</button>
+<br>
+<pre *ngFor="let serial of serialNumbers; let i=index">'{{serial.serialNumber}}',</pre>
+
+<!-- <pre *ngFor="let serial of serialNumbers; let i=index">value:{{serial.value}}, name: '{{serial.name}}'</pre> -->
